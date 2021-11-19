@@ -10,6 +10,7 @@ import { EventDetailsComponent } from './events/event-details/event-details.comp
 import { RouterModule, Routes } from '@angular/router';
 import { ToastrService } from './common/toastr.service';
 import { appRoutes } from './routes';
+import { CreateEventComponent } from './events/create-event.component';
 
 
 
@@ -23,7 +24,8 @@ import { appRoutes } from './routes';
     EventsListComponent,
     EventThumbnailComponent,
     EventDetailsComponent,
-    NavBarComponent
+    NavBarComponent,
+    CreateEventComponent
   ],  
   providers: [
     EventService,
