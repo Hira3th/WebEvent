@@ -9,18 +9,14 @@ import { EventService } from './events/shared/event.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ToastrService } from './common/toastr.service';
-//import { appRoutes } from './routes';
+import { appRoutes } from './routes';
 
-export const appRouteList: Routes = [
-  { path: 'events', component: EventsListComponent },
-  { path: 'events/:id', component: EventDetailsComponent },
-  { path: '', redirectTo: 'events', pathMatch: 'full'}
-];
+
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRouteList)
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     EventsAppComponent,
