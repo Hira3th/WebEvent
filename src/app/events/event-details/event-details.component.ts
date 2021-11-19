@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { EventService } from "../shared/event.service";
 
 @Component({
@@ -8,7 +8,7 @@ import { EventService } from "../shared/event.service";
         .event-image: { height: 100px; }
     `]
 })
-export class EventDetailsComponent{
+export class EventDetailsComponent  implements OnInit{
     event:any
     constructor(private eventService: EventService){
 

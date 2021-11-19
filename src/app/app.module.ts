@@ -19,7 +19,7 @@ export const appRouteList: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRouteList, { enableTracing: true })
+    RouterModule.forRoot(appRouteList)
   ],
   declarations: [
     EventsAppComponent,
