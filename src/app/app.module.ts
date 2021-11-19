@@ -8,6 +8,7 @@ import { NavBarComponent } from './nav/navbar.component';
 import { EventService } from './events/shared/event.service';
 import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ToastrService } from './common/toastr.service';
 //import { appRoutes } from './routes';
 
 export const appRouteList: Routes = [
@@ -28,7 +29,10 @@ export const appRouteList: Routes = [
     EventDetailsComponent,
     NavBarComponent
   ],  
-  providers: [EventService],
+  providers: [
+    EventService,
+    ToastrService
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
