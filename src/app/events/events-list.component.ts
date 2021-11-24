@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "../common/toastr.service";
 import { EventService } from "./shared/event.service";
 
@@ -19,15 +20,18 @@ import { EventService } from "./shared/event.service";
 })
 
 export class EventsListComponent implements OnInit{
-   events:any[]
-    constructor(private _eventService: EventService, private _toastr: ToastrService){
+   events:any
+    constructor(private _eventService: EventService, private _toastr: ToastrService,
+      private route:ActivatedRoute){
       //No injections in the construstion
         
     }
 
     ngOnInit(){
-      //injection belong here
-      this.events = this._eventService.getEvents();
+      //Now inject in the resolver
+      ////injection belong here
+      ////this._eventService.getEvents().subscribe(_events => {this.events = _events});
+      this.events = this.route.snapshot.data['events']
     }
 
     handleThumbnailClick(eventName){
