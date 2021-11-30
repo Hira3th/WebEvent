@@ -4,6 +4,7 @@ import { IEvent } from '.';
 
 @Injectable()
 export class EventService {
+    
     getEvents():Observable<IEvent[]> {
       let subject = new Subject<IEvent[]>()
       setTimeout(() => {subject.next(EVENTS); subject.complete();},
@@ -14,6 +15,12 @@ export class EventService {
     getEvent(id:number):IEvent{
         return EVENTS.find(event => event.id === id)
     }
+
+    saveEevent(event) {
+      event.id = 999
+      event.session = []
+      EVENTS.push(event)
+  }
 }
 
 const EVENTS: IEvent[] = [
