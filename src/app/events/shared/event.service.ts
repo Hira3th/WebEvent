@@ -4,6 +4,10 @@ import { IEvent } from '.';
 
 @Injectable()
 export class EventService {
+    updateEvent(event: IEvent) {
+        let index = EVENTS.findIndex(x => x.id = event.id)
+        EVENTS[index] = event
+    }
     
     getEvents():Observable<IEvent[]> {
       let subject = new Subject<IEvent[]>()

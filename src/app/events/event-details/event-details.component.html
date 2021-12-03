@@ -21,5 +21,23 @@
           {{event?.location?.city}}, {{event?.location?.country}}
         </address>
       </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-md-2">
+          <h3 style="margin: 0;">Sessions</h3>
+        </div>
+
+        <div class="col-md-2">
+          <a *ngIf="!addMode" (click)="addSession()">Add Session</a>
+          <a *ngIf="addMode" (click)="showSessions()">Show Sessions</a>
+        </div>
+      </div>
+
+
+      <session-list *ngIf="!addMode" [sessions]="event?.sessions"></session-list>
+      <create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" 
+        (cancelAddSession)="cancelAddSession()"></create-session>
     </div>
 </div>
