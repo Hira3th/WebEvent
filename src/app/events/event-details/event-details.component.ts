@@ -19,6 +19,8 @@ export class EventDetailsComponent  implements OnInit{
     }
     ngOnInit(){         
         this.event = this.eventService.getEvent(+this.route.snapshot.params['id'])
+        console.log(this.event);
+        
     }
 
     addSession(){
@@ -30,9 +32,15 @@ export class EventDetailsComponent  implements OnInit{
     }
 
     saveNewSession(session:ISession){
-        const nextId = Math.max.apply(null, this.event.sessions.map(s => s.id));
+        const nextId = this.event.sessions?.length > 0 ? Math.max.apply(null, this.event.sessions.map(s => s.id)) : 0;
+        console.log(this.event.sessions);
         session.id = nextId + 1
-        this.event.sessions.push(session)
+        console.log(session.id);
+        if (this.event.sessions?.length > 0){
+            this.event.sessions?.push(session)
+        } else {
+            this.event.sessions = [session]
+        }
         this.eventService.updateEvent(this.event)
         this.addMode = false
     }

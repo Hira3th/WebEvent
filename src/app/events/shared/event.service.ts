@@ -22,7 +22,7 @@ export class EventService {
 
     saveEevent(event) {
       event.id = 999
-      event.session = []
+      event.sessions = []
       EVENTS.push(event)
   }
 }
